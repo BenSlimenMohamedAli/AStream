@@ -1,0 +1,123 @@
+.bg-one {
+    background-color: #2f3640 !important;
+}
+
+.bg-tow {
+    background-color: #192a56 !important;
+}
+
+.bg-three {
+    background-color: #718093 !important;
+}
+
+.bg-four {
+    background-color: #273c75 !important;
+}
+
+.bg-five {
+    background-color: #c23616 !important;
+}
+
+.bg-six {
+    background-color: #e84118 !important;
+}
+
+.bg-seven {
+    background-color: #353b48 !important;
+}
+
+.bg-eight {
+    background-color: #f5f6fa !important;
+}
+
+.bg-nine {
+    background-color: #273c75 !important;
+}
+
+.bg-ten {
+    background-color: #40739e !important;
+}
+
+/* Text colors */
+
+.tx-one {
+    color: #2f3640 !important;
+}
+
+.tx-tow {
+    color: #192a56 !important;
+}
+
+.tx-three {
+    color: #718093 !important;
+}
+
+.tx-four {
+    color: #273c75 !important;
+}
+
+.tx-five {
+    color: #c23616 !important;
+}
+
+.tx-six {
+    color: #e84118 !important;
+}
+
+.tx-seven {
+    color: #353b48 !important;
+}
+
+.tx-eight {
+    color: #f5f6fa !important;
+}
+
+.tx-nine {
+    color: #9b9b9b !important;
+}
+
+.tx-ten {
+    color: #40739e !important;
+}
+
+/* Border colors */
+
+.br-one {
+    border : 2px solid #2f3640 !important;
+}
+
+.br-tow {
+    border : 2px solid #192a56 !important;
+}
+
+.br-three {
+    border : 2px solid #718093 !important;
+}
+
+.br-four {
+    border : 2px solid #273c75 !important;
+}
+
+.br-five {
+    border : 2px solid #c23616 !important;
+}
+
+.br-six {
+    border : 2px solid #e84118 !important;
+}
+
+.br-seven {
+    border : 2px solid #353b48 !important;
+}
+
+.br-eight {
+    border : 2px solid #f5f6fa !important;
+}
+
+.br-nine {
+    border : 2px solid #273c75 !important;
+}
+
+.br-ten {
+    border : 2px solid #40739e !important;
+}

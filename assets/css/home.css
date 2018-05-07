@@ -1,0 +1,17 @@
+.representation {
+    margin-top : 1%;
+}
+
+.rep {
+    height : 90vmin !important;
+    margin-bottom: 20px;
+}
+
+.carousel-item{
+    height : 90vmin !important;
+}
+
+.view{
+    height : 90vmin !important;
+}
+

@@ -1,0 +1,20 @@
+
+/* Representation */
+.rep-content img {
+    display: inline-block;
+    height: 50vmin;
+}
+
+.view {
+    background-size: cover;
+}
+@media screen and (max-width: 400px) {
+    .rep-title {
+        font-size: 20px;
+    }
+
+    .rep-content {
+        font-size: 15px;
+    }
+}
+/* Representation */

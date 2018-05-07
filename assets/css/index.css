@@ -1,0 +1,130 @@
+/* General css */
+
+
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+    background-color: #1C2331;
+}
+
+/* Carousel */
+.carousel {
+    
+}
+
+.carousel-item{
+    height:100vmin;
+}
+
+.carousel-item img {
+    height: 100%;
+    width : 100%;
+}
+
+
+/* Social media continer */
+.social {
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+/* Cards */
+.card-margin {
+    margin: 3%;
+}
+
+.intro-2 {
+    background: url("../img/abstract.jpg") no-repeat center center;
+    background-size: cover;
+    height:100vmin;
+}
+
+.btn.btn-white {
+    color: #212121 !important;
+}
+
+h6 {
+    line-height: 1.7;
+}
+
+@media (max-width: 450px) {
+    .margins {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+}
+
+footer{
+    padding-top: 20px;
+}
+
+.font-bold{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+footer.page-footer .language-section ul li {
+    display: inline-block
+}
+
+footer.page-footer .language-section ul a {
+    margin-left: 0;
+    padding-left: 0;
+    box-shadow:  0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15)
+}
+
+
+footer .btn-floating {
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    padding: 0;
+    border-radius: 50%;
+    margin: 10px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: 5px 10px 18px #;
+}
+
+footer .btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 47px;
+    text-align: center
+}
+
+footer .btn-floating:before {
+    border-radius: 0
+}
+
+footer .btn-floating.btn-sm {
+    width: 36.15385px;
+    height: 36.15385px
+}
+
+footer .btn-floating.btn-sm i {
+    font-size: .96154rem;
+    line-height: 36.15385px
+}

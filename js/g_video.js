@@ -17,9 +17,12 @@ $(document).ready(function () {
             },
             success: function(){
                 $("#agvidresult").html('succés'); // display response from the PHP script, if any
+                $("#aj-vid-titre").html('Ajouter un acteur aux video '+ $("#titre").val());
+                $('#form-ajouter-vid').hide();
+                $('#form-ajouter-act').show();
             },
             error : function(text){
-                $("#agvidresult").html('Erreur');
+                $("#agvidresult").html('Vidéo déja existe');
             }
         });
     }
@@ -104,26 +107,24 @@ $(document).ready(function () {
     // Getting the file name
     $('#file').change(function(e){
         $('#url').val(e.target.files[0].name);
-    });
+    }).hide();
 
     /*
         Initial instructions
      */
-    $('#file').hide();
     $('#url').hide();
     $('#form-vid-data').hide();
+    $('#form-ajouter-act').hide();
     $("#fromurl").on('click',function (e) {
         $('#url').show();
-        $('#file').hide();
-        $('#file').val('');
+        $('#file').hide().val('');
         $('#form-vid-data').show();
         $('#type').val('url');
     });
 
     $("#fromserver").on('click',function (e) {
         $('#file').show();
-        $('#url').hide();
-        $('#url').val('');
+        $('#url').hide().val('');
         $('#form-vid-data').show();
         $('#type').val('server');
     });

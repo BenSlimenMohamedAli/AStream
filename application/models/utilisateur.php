@@ -44,8 +44,18 @@ class utilisateur extends CI_Model
         return $res;
     }
 
-    public function get_all(){
+    public function get_all($page){
         $this->db->select("*");
+        $this->db->from("utilisateur");
+        $this->db->limit(4,$page);
+
+        $query = $this->db->get();
+        $res = $query->result();
+        return $res;
+    }
+
+    public function count(){
+        $this->db->select("count(*) as utilisateurs");
         $this->db->from("utilisateur");
 
         $query = $this->db->get();

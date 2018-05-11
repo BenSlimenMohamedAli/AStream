@@ -3,7 +3,7 @@ $number = 0;
 ?>
 <?php
 foreach ($res as $item){ $number++;?>
-<form id="form-categorie" class="animated fadeInDownBig">
+<form id="form-categorie" class="animated fadeInLeft">
     <!-- Grid row -->
     <div class="row">
 

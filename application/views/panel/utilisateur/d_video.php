@@ -1,8 +1,8 @@
 <!--Grid row-->
-<div class="row wow animated fadeInDown m-4">
+<div class="row wow animated fadeInDown col-md-9">
 
     <!--Grid column-->
-    <div class="col-md-12 mb-4">
+    <div class="col-md-12">
 
         <!--Card-->
         <div class="card">

@@ -25,10 +25,13 @@ class home extends CI_Controller
         }
 
         $data['userdata'] = $this->session->all_userdata();
-        $this->load->model('categorie');
-
-        $categories = $this->categorie->get_all();
+        // getting all categories that has a video
+        $this->load->model('video');
+        $categories = $this->video->get_all_categories();
         $data['categories'] = $categories;
+
+        $vids = $this->video->get_all();
+        $data['vids'] = $vids;
 
         $this->load->helper('html');
         $this->load->helper('url');

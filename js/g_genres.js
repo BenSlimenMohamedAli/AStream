@@ -84,6 +84,9 @@ $(document).ready(function () {
                     show_genres();
                     modify_genre()
 
+                },
+                error : function () {
+                    $("#gnresult").html('Il ya des vidéos relatives a ce genre');
                 }
             });
         });

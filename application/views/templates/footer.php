@@ -15,15 +15,6 @@
                 </h6>
             </div>
             <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="http://localhost/AStream/index.php/login">Connection</a>
-                </h6>
-            </div>
-            <!--Grid column-->
-
             <!--Grid column-->
             <div class="col-md-2 mb-3">
                 <h6 class="text-uppercase font-weight-bold">
@@ -97,10 +88,7 @@
 
 </footer>
 <!--/Footer-->
-
-
 <?php
-echo script_tag('assets/js/jquery-3.3.1.js');
 echo script_tag('assets/js/mdb.min.js');
 echo script_tag('assets/js/bootstrap.js');
 echo script_tag('assets/js/popper.min.js');

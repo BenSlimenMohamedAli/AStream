@@ -16,4 +16,34 @@ class video extends CI_Model
         return $res;
     }
 
+    public function get_all_categories(){
+        $this->db->select("count(*) as cnt,categorie");
+        $this->db->from("video");
+        $this->db->group_by("categorie");
+
+        $query = $this->db->get();
+        $res = $query->result();
+        return $res;
+    }
+
+    public function get_categorie_videos($categorie){
+        $this->db->select("*");
+        $this->db->from("video");
+        $this->db->where("categorie",$categorie);
+
+        $query = $this->db->get();
+        $res = $query->result();
+        return $res;
+    }
+
+    public function get_video ($video){
+        $this->db->select("*");
+        $this->db->from("video");
+        $this->db->where("titre",$video);
+
+        $query = $this->db->get();
+        $res = $query->result();
+        return $res;
+    }
+
 }

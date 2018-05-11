@@ -2,13 +2,33 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
 
-    function show_users() {
+    function count_users() {
         $.ajax({
             type : 'POST',
-            url  : 'http://localhost/AStream/index.php/admin/load_users',
+            url  : 'http://localhost/AStream/index.php/admin/count_users',
+            success :  function(text)
+            {
+                $("ul#pg_ut").html(text);
+            },
+            error : function () {
+                $("ul#pg_ut").html('erreur');
+            }
+
+
+        });
+        return false;
+
+    }
+    function show_users(page) {
+        $.ajax({
+            type : 'POST',
+            url  : 'http://localhost/AStream/index.php/admin/load_users/'+page,
             success :  function(text)
             {
                 $("div#form-users").html(text);
+
+                var p = (page/4);
+                $('ul#pg_ut').find('li[value="'+(p+1)+'"]').addClass('active').siblings().removeClass('active');
                 delete_user();
                 modify_user();
             }
@@ -54,7 +74,7 @@ $( document ).ready(function() {
                 success :  function()
                 {
                     $("#result").html('l\'utilisateur : '+u_id+' est bien Modifié');
-                    show_users();
+                    show_users(($('ul#pg_ut').find('li.active').attr('value') - 1) * 4);
                 },
                 error : function () {
                     $("#result").html('le champ role ne peut pas étre autre que admin ou utilisateur');
@@ -91,7 +111,8 @@ $( document ).ready(function() {
                 success :  function()
                 {
                     $("#result").html('l\'utilisateur : '+u_id+' est bien supprimé');
-                    show_users();
+                    count_users();
+                    show_users(($('ul#pg_ut').find('li.active').attr('value') - 1) * 4);
                 }
             });
         });
@@ -152,7 +173,8 @@ $( document ).ready(function() {
                 $("#result").html('l\'utilisateur est ajouté');
                 $('#hide-us').show();
                 $('#show-us').hide();
-                show_users();
+                count_users();
+                show_users(0);
 
             }
         });
@@ -160,15 +182,14 @@ $( document ).ready(function() {
     }
     /* form submit */
 
-
-    // default hides and shows
-    $('#hide-us').hide();
     // function to show users
     $('#show-us').click(function () {
-        show_users();
         $('#form-users').show();
         $('#hide-us').show();
         $('#show-us').hide();
+        count_users();
+        $('ul#pg_ut').show();
+        show_users(0);
     });
 
     // function to hide users
@@ -176,6 +197,17 @@ $( document ).ready(function() {
         $('#form-users').hide();
         $('#show-us').show();
         $('#hide-us').hide();
+        $('ul#pg_ut').hide();
+    }).hide();
+
+
+    /*
+        Pagination des utilisateurs
+     */
+    $('ul#pg_ut').click('li',function (e) {
+        //this.id = 'newId';
+        e.preventDefault();
+        show_users(($(this).find('li[id="selected"]').attr('value') - 1) * 4);
     });
 
 

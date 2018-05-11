@@ -120,7 +120,7 @@ $( document ).ready(function() {
                     $("#btn-submitOne").html('Se connecter');
                     $("#error").html('');
                     $("#success").html('compte vérifié');
-                    location.href = "http://localhost/AStream/index.php/panel"
+                    location.href = "http://localhost/AStream/index.php/panel";
                 }else {
                     $("#btn-submitOne").html('Se connecter');
                     $("#error").html('vérifier vos données');

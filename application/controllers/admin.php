@@ -2,11 +2,10 @@
 
 class admin extends CI_Controller
 {
-    public function load_users() {
+    public function load_users($page) {
         // get all users
         $this->load->model('utilisateur');
-        $res = $this->utilisateur->get_all();
-        $data['res'] = $res;
+        $data['res'] = $this->utilisateur->get_all($page);
 
         $this->load->view('forms/admin/user_info',$data);
     }
@@ -32,6 +31,20 @@ class admin extends CI_Controller
         $id = $this->input->post('u_id');
 
         $this->utilisateur->modify_user($id,$nom,$prenom,$mdp,$role);
+    }
+
+    public function count_users(){
+        $this->load->model('utilisateur');
+        $nbr = $this->utilisateur->count();
+        foreach ($nbr as $item){
+            $data['utilisateurs'] = $item ->utilisateurs / 4;
+        }
+        try{
+            $this->load->view('forms/admin/paginations/user',$data);
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+
     }
 
     /*
@@ -127,6 +140,11 @@ class admin extends CI_Controller
             }else if(move_uploaded_file($_FILES['file']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
             {
                 echo 'Upload effectué avec succès !';
+                $n = preg_replace('/[^A-Za-z0-9\-]/', '', $fichier);
+                $n = str_replace(' ', '-', $n);
+
+                rename($dossier.$fichier, $dossier.$n);
+
             }
             else //Sinon (la fonction renvoie FALSE).
             {
@@ -147,14 +165,29 @@ class admin extends CI_Controller
         $d_sortie = $this->input->post('date_sortie');
         $annee_prod = $this->input->post('annee_prod');
         $note_presse = $this->input->post('note_presse');
-        $description = $this->input->post('description');
-        $type = $this->input->post('type');
-        $categorie = $this->input->post('vid_categorie');
-        $genre = $this->input->post('vid_genre');
-        $disponible = 1;
+        $description = $this->input->post('description'); // la description
+        $type = $this->input->post('type'); // le type d'url
+        $categorie = $this->input->post('vid_categorie'); // la catégorie
+        $genre = $this->input->post('vid_genre'); // le genre
+        $disponible = 1; // Le video est validé par l'admin ou nn
+        $url = $this->input->post('url'); // URL du video
 
-        $url = 'http://localhost/AStream/vid/'.$this->input->post('url');
-        //$file_name = $this->input->post('file_name');
+        if(strcmp($type,'server') == 0){
+            $url = preg_replace('/[^A-Za-z0-9\-]/', '', $url);
+            $url = str_replace(' ', '-', $url);
+            $url = 'http://localhost/AStream/vid/'.$url;
+        }
+        // Vérification de l'url
+        else if(strcmp($type,'url') == 0){
+            if(strstr($url,'www.youtube.com')){
+                // Convertir le lien
+                $url = preg_replace(
+                    "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+                    "//www.youtube.com/embed/$2",
+                    $url
+                );
+            }
+        }
 
         $this->load->model('video');
         $this->video->insert_video($titre,$t_original,$origine,$realisateur,$duree,$d_sortie,$annee_prod,$note_presse,$description,$url,$type,$categorie,$genre,$disponible);

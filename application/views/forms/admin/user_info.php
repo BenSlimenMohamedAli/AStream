@@ -3,7 +3,7 @@ $number = 0;
 ?>
 <?php
 foreach ($res as $item){ $number++;?>
-    <form id="form-modifier" class="animated fadeInDownBig">
+    <form id="form-modifier" class="animated fadeInDown">
         <!-- Grid row -->
         <div class="row">
 
@@ -59,4 +59,4 @@ foreach ($res as $item){ $number++;?>
 
     </form>
 <?php } ?>
-<span class="badge badge-primary badge-pill"><?php echo $number;?></span>
+

@@ -48,7 +48,13 @@
 
                 <!-- Show users list here -->
                 <div id="form-users"></div>
+                <!--Pagination-->
+                <nav aria-label="pagination example">
+                    <ul class="pagination pg-teal" style="float: left" id="pg_ut">
 
+                        <!-- paginations -->
+                    </ul>
+                </nav>
             </div>
 
         </div>

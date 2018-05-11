@@ -5187,7 +5187,7 @@ var Ads = function () {
                     break;
 
                 case google.ima.AdEvent.Type.ALL_ADS_COMPLETED:
-                    // All ads for the current videos are done. We can now request new advertisements
+                    // All ads for the current video are done. We can now request new advertisements
                     // in case the video is re-played
 
                     // Fire event
@@ -5666,7 +5666,7 @@ var youtube = {
         // Or via Google API
         var key = this.config.keys.google;
         if (utils.is.string(key) && !utils.is.empty(key)) {
-            var url = 'https://www.googleapis.com/youtube/v3/videos?id=' + videoId + '&key=' + key + '&fields=items(snippet(title))&part=snippet';
+            var url = 'https://www.googleapis.com/youtube/v3/video?id=' + videoId + '&key=' + key + '&fields=items(snippet(title))&part=snippet';
 
             utils.fetch(url).then(function (result) {
                 if (utils.is.object(result)) {

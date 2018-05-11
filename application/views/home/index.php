@@ -1,4 +1,5 @@
-<?php echo link_tag('css/themeone/home.css');
+<?php echo link_tag('css/jquery.funnyText.css');
+echo link_tag('css/themeone/home.css');
 ?>
 
 <title>Accueil</title>

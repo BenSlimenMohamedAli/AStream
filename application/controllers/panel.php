@@ -21,8 +21,14 @@ class panel extends CI_Controller
 
                 // get all users
                 $this->load->model('utilisateur');
-                $res = $this->utilisateur->get_all();
+                $res = $this->utilisateur->get_all(0);
                 $data['res'] = $res;
+
+                $nbr = $this->utilisateur->count();
+
+                foreach ($nbr as $item){
+                    $data['utilisateurs'] = $item->utilisateurs / 4;
+                }
                 // get all categories
                 $this->load->model('categorie');
                 $categories = $this->categorie->get_all();
